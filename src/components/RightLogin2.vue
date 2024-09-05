@@ -30,7 +30,7 @@ export default {
           this.status = response.status;
           if (this.id && this.status == 200) {
             this.message = "Успешно";
-            localStorage.setItem("login1", this.id);
+            localStorage.setItem("login2", this.id);
             this.load_info();
           } else {
             this.message = "Неправильно введен логин или пароль";
@@ -48,14 +48,14 @@ export default {
 
     async load_info() {
       try {
-        this.id = localStorage.getItem("login1");
+        this.id = localStorage.getItem("login2");
         if (this.id) {
           let response = await axios.get(`/account_info?login=${this.id}`);
           console.log(response);
           this.username = response.data.username;
           this.img = response.data.profile_pic_url;
           if (this.img) {
-            let imgRef = document.querySelector(".avatar-img");
+            let imgRef = document.querySelector(".avatar-img2");
             imgRef.src = `http://localhost:3000${this.img}`;
           }
         }
@@ -79,7 +79,7 @@ export default {
     <LoaderSpinner v-if="isLoading" />
     <div class="form" v-else>
       <div class="avatar">
-        <img class="avatar-img" alt="" />
+        <img class="avatar-img2" alt="" />
         <span>{{ username }}</span>
       </div>
       <div class="infoLogin">
@@ -162,7 +162,7 @@ i {
   line-height: 20px;
 }
 
-.avatar-img {
+.avatar-img2 {
   width: 48px;
   height: 48px;
   object-fit: cover;

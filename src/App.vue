@@ -1,6 +1,6 @@
 <script>
 import LeftScreen from "./components/LeftScreen.vue";
-import RightScreen from "./components/RightScreen.vue";
+import RightScreen from "./components/RightScreen2.vue";
 export default {
   name: "App",
   components: {
@@ -154,6 +154,24 @@ button::-moz-focus-inner {
   width: 90px;
   height: 60px;
   margin-top: 400px;
+}
+
+.msg {
+  padding: 10px 13px;
+  font-size: 16px;
+  line-height: 16px;
+  color: #fff;
+  border-radius: 15px;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.success {
+  background-color: #45ed0b;
+}
+
+.error {
+  background-color: #cf0032;
 }
 
 @media (max-width: 1050px) {

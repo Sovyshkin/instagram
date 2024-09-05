@@ -1,11 +1,11 @@
 <script>
-import LeftLogin from "./LeftLogin.vue";
+import RightLogin from "./RightLogin2.vue";
 import axios from "axios";
 import LoaderSpinner from "./LoaderSpinner.vue";
 
 export default {
-  name: "LeftScreen",
-  components: { LeftLogin, LoaderSpinner },
+  name: "RightScreen",
+  components: { RightLogin, LoaderSpinner },
   data() {
     return {
       login: "",
@@ -90,7 +90,7 @@ export default {
     async load_info() {
       try {
         this.isLoading = true;
-        this.id = localStorage.getItem("login1");
+        this.id = localStorage.getItem("login2");
         if (this.active == 1 && this.id) {
           let response = await axios.get(`/get_followings?login=${this.id}`);
           console.log(response);
@@ -105,15 +105,13 @@ export default {
             setTimeout(() => {
               let images = document.querySelectorAll(`.item_avatar_foll`);
               console.log("images", images);
-              if (images.length > 0) {
-                for (let i = 0; i < this.followings.length; i++) {
-                  images[
-                    i
-                  ].src = `http://localhost:3000${this.followings[i].profile_pic_url}`;
-                  console.log(images[i]);
-                }
+              for (let i = 0; i < this.followings.length; i++) {
+                images[
+                  i
+                ].src = `http://localhost:3000${this.followings[i].profile_pic_url}`;
+                console.log(images[i]);
               }
-            }, 5000);
+            }, 3000);
           }
         } else if (this.active == 3 && this.id) {
           this.countBookmarks = 0;
@@ -138,14 +136,12 @@ export default {
                 }
               }
               setTimeout(() => {
-                let images = document.querySelectorAll(`.post-img`);
+                let images = document.querySelectorAll(`.post-img2`);
                 console.log("images", images);
-                if (images.length > 0) {
-                  for (let i = 0; i < posts_for_img.length; i++) {
-                    images[i].src = `http://localhost:3000${posts_for_img[i]}`;
-                  }
+                for (let i = 0; i < posts_for_img.length; i++) {
+                  images[i].src = `http://localhost:3000${posts_for_img[i]}`;
                 }
-              }, 5000);
+              }, 3000);
             }
           }
         }
@@ -276,7 +272,7 @@ export default {
         if (this.active == 1) {
           let lst = this.selectedFollowing;
           let response = await axios.post(
-            `/add_followings?login=${localStorage.getItem("login2")}`,
+            `/add_followings?login=${localStorage.getItem("login1")}`,
             lst,
             {
               "Content-Type": "application/json",
@@ -286,13 +282,16 @@ export default {
           let status = response.status;
           if (status == 200) {
             this.message = "Success";
+            setTimeout(() => {
+              this.message = "";
+            }, 3000);
           } else {
             this.message = "Error";
           }
         } else if (this.active == 3) {
           let lst = this.selectedBookmarks;
           let response = await axios.post(
-            `/add_medias_to_collection?login=${localStorage.getItem("login2")}`,
+            `/add_medias_to_collection?login=${localStorage.getItem("login1")}`,
             lst,
             {
               "Content-Type": "application/json",
@@ -322,7 +321,7 @@ export default {
 <template>
   <LoaderSpinner v-if="isLoading" />
   <div class="wrapper" v-else>
-    <LeftLogin />
+    <RightLogin />
     <div class="warn" v-if="active == 3">
       All posts from all collections will be moved to favorites
     </div>
@@ -358,8 +357,8 @@ export default {
         <div
           class="msg"
           :class="{
-            success: this.message == 'Success',
-            error: this.message != 'Success',
+            success: this.message == 'Успешно',
+            error: this.message != 'Успешно',
           }"
           v-if="message"
         >
@@ -554,7 +553,7 @@ export default {
               :key="post.pk"
               @click="postActive(item.id, post.pk)"
             >
-              <img class="post-img" alt="" />
+              <img class="post-img2" alt="" />
               <span class="name">{{ truncateText(post.caption_text) }}</span>
               <img
                 v-if="post.active"
@@ -893,7 +892,7 @@ h2 {
   gap: 10px;
 }
 
-.post-img {
+.post-img2 {
   height: 52px;
   width: 52px;
 }
