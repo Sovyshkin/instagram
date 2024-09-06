@@ -56,7 +56,7 @@ export default {
           this.img = response.data.profile_pic_url;
           if (this.img) {
             let imgRef = document.querySelector(".avatar-img");
-            imgRef.src = `http://localhost:3000${this.img}`;
+            imgRef.src = `http://37.1.208.253:3000${this.img}`;
           }
         }
       } catch (err) {
