@@ -56,7 +56,7 @@ export default {
           this.img = response.data.profile_pic_url;
           if (this.img) {
             let imgRef = document.querySelector(".avatar-img2");
-            imgRef.src = `http://localhost:3000${this.img}`;
+            imgRef.src = `http://37.1.208.253:3000${this.img}`;
           }
         }
       } catch (err) {
@@ -71,11 +71,11 @@ export default {
 </script>
 <template>
   <div class="wrap">
-    <h2>1. Log in to the existing and new Instagram account:</h2>
+    <h2>4. Log in to the receiving Instagram account:</h2>
     <i
       >We strongly advise to use temporary passwords and change them immediately
-      after the transfer</i
-    >
+      after the transfer
+    </i>
     <LoaderSpinner v-if="isLoading" />
     <div class="form" v-else>
       <div class="avatar">
@@ -83,17 +83,17 @@ export default {
         <span>{{ username }}</span>
       </div>
       <div class="infoLogin">
-        <span>Old Account</span>
+        <span>New Account</span>
         <input v-model="login" type="text" placeholder="Username" />
         <input v-model="password" type="password" placeholder="Password" />
       </div>
       <button @click="log" class="btn">Log in</button>
     </div>
-    <h2>2. Select what you wish to be exported to the new account:</h2>
+    <h2>5. Browse through the copied accounts and bookmarks:</h2>
     <i
-      >Browse through each following, followers and bookmarks, select all you
-      wish to be transferred and hit TRANSFER above</i
-    >
+      >You can select and delete those copied in error. You can redo the export,
+      the duplicates will be omitted
+    </i>
   </div>
 </template>
 <style scoped>

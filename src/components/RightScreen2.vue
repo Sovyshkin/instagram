@@ -108,7 +108,7 @@ export default {
               for (let i = 0; i < this.followings.length; i++) {
                 images[
                   i
-                ].src = `http://localhost:3000${this.followings[i].profile_pic_url}`;
+                ].src = `http://37.1.208.253:3000${this.followings[i].profile_pic_url}`;
                 console.log(images[i]);
               }
             }, 3000);
@@ -139,7 +139,7 @@ export default {
                 let images = document.querySelectorAll(`.post-img2`);
                 console.log("images", images);
                 for (let i = 0; i < posts_for_img.length; i++) {
-                  images[i].src = `http://localhost:3000${posts_for_img[i]}`;
+                  images[i].src = `http://37.1.208.253:3000${posts_for_img[i]}`;
                 }
               }, 3000);
             }
