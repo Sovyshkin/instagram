@@ -1,11 +1,9 @@
 <script>
-import LeftScreen from "./components/LeftScreen.vue";
-import RightScreen from "./components/RightScreen2.vue";
+import AppHeader from "./components/AppHeader.vue";
 export default {
   name: "App",
   components: {
-    LeftScreen,
-    RightScreen,
+    AppHeader,
   },
   data() {
     return {
@@ -18,25 +16,25 @@ export default {
 };
 </script>
 <template>
-  <div class="wrap">
-    <LeftScreen />
-    <img class="transfer-img" src="./assets/transfer.png" alt="" />
-    <RightScreen />
+  <div class="app">
+    <app-header />
+    <router-view></router-view>
   </div>
 </template>
 <style>
-@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Manrope:wght@200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&display=swap");
 #app {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Unbounded", serif;
   width: 100%;
 }
 * {
   padding: 0px;
   margin: 0px;
   border: none;
-  font-weight: 400;
+  font-family: "Unbounded", serif;
+  font-optical-sizing: auto;
   font-style: normal;
-  font-family: "Montserrat", sans-serif;
+  color: #fff;
 }
 
 *,
@@ -45,11 +43,12 @@ export default {
   box-sizing: border-box;
 }
 
-.wrap {
+.app {
+  padding: 20px;
   display: flex;
-  justify-content: space-evenly;
-  padding: 40px;
-  width: 100%;
+  flex-direction: column;
+  gap: 10px;
+  background-color: #111111;
 }
 
 body,
@@ -58,6 +57,7 @@ body,
   height: 100%;
   display: flex;
   flex-direction: column;
+  background-color: #111111;
 }
 
 /* Links */
@@ -143,11 +143,6 @@ button::-moz-focus-inner {
 .card {
   transition: all 500ms ease;
   cursor: pointer;
-}
-
-.wrap {
-  max-width: 1440px;
-  margin: 0 auto;
 }
 
 .transfer-img {

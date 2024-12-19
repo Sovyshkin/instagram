@@ -4,7 +4,7 @@ import axios from "axios";
 import LoaderSpinner from "./LoaderSpinner.vue";
 
 export default {
-  name: "RightScreen",
+  name: "RightScreen2",
   components: { RightLogin, LoaderSpinner },
   data() {
     return {
@@ -323,7 +323,7 @@ export default {
   <div class="wrapper" v-else>
     <RightLogin />
     <div class="warn" v-if="active == 3">
-      All posts from all collections will be moved to favorites
+      All entries from all collections will be moved to favorites
     </div>
     <div class="info" v-if="account1">
       <div class="wrap_btns">
@@ -333,7 +333,7 @@ export default {
           @click="loadActive(1)"
         >
           <span>Following</span>
-          <span>({{ countFollowing }} of {{ this.followings.length }})</span>
+          <span>({{ countFollowing }} / {{ this.followings.length }})</span>
         </button>
         <button
           class="btn"
@@ -341,7 +341,7 @@ export default {
           @click="loadActive(2)"
         >
           <span>Followers</span>
-          <span>({{ countFollowers }} of {{ this.followers.length }})</span>
+          <span>({{ countFollowers }} / {{ this.followers.length }})</span>
         </button>
         <button
           class="btn"
@@ -349,10 +349,10 @@ export default {
           @click="loadActive(3)"
         >
           <span>Bookmarks</span>
-          <span>({{ selectedBookmarks.length }} of {{ countBookmarks }})</span>
+          <span>({{ selectedBookmarks.length }} / {{ countBookmarks }})</span>
         </button>
         <button v-if="!message" class="btn transfer" @click="transfer">
-          3. TRANSFER
+          TRANSFER
         </button>
         <div
           class="msg"
@@ -425,11 +425,16 @@ export default {
           <div class="group-img">
             <img
               @click="back()"
-              class="next back"
-              src="../assets/next.png"
+              class="next"
+              src="../assets/arrow-left.png"
               alt=""
             />
-            <img @click="next()" class="next" src="../assets/next.png" alt="" />
+            <img
+              @click="next()"
+              class="next"
+              src="../assets/arrow-right.png"
+              alt=""
+            />
           </div>
         </div>
       </div>
@@ -495,14 +500,14 @@ export default {
           <div class="group-img">
             <img
               @click="back('followers')"
-              class="next back"
-              src="../assets/next.png"
+              class="next"
+              src="../assets/arrow-left.png"
               alt=""
             />
             <img
               @click="next('followers')"
               class="next"
-              src="../assets/next.png"
+              src="../assets/arrow-right.png"
               alt=""
             />
           </div>
@@ -578,14 +583,14 @@ export default {
           <div class="group-img">
             <img
               @click="back('bookmarks')"
-              class="next back"
-              src="../assets/next.png"
+              class="next"
+              src="../assets/arrow-left.png"
               alt=""
             />
             <img
               @click="next('bookmarks')"
               class="next"
-              src="../assets/next.png"
+              src="../assets/arrow-right.png"
               alt=""
             />
           </div>
@@ -601,7 +606,10 @@ export default {
   flex-direction: column;
   align-items: center;
   justify-content: start;
-  gap: 20px;
+  border-radius: 20px;
+  padding: 30px;
+  gap: 30px;
+  background-color: #1f1f1f;
 }
 .card {
   position: relative;
@@ -617,9 +625,9 @@ export default {
 
 .title {
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 400;
   line-height: 20px;
-  color: #000;
+  color: #fff;
 }
 
 .info {
@@ -743,38 +751,35 @@ h2 {
 .wrap_btns {
   width: 100%;
   display: flex;
-  align-items: center;
+  align-items: stretch;
   justify-content: center;
   gap: 10px;
 }
 
 .wrap_btns button {
-  background-color: #ebf2fe;
-  padding: 15px;
-  color: #000;
-  height: 73px;
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  padding: 16px;
   border-radius: 10px;
-  transition: all 500ms ease;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 5px;
+  transition: all 500ms ease;
 }
 
 .wrap_btns button span {
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 400;
   line-height: 20px;
   text-align: center;
 }
 
 .transfer {
   font-size: 14px;
+  font-weight: 400;
   line-height: 20px;
   text-align: center;
-  font-weight: 600;
-  margin-left: 20px;
   background-color: #9747ff !important;
 }
 
@@ -813,12 +818,12 @@ h2 {
 }
 
 .item_header {
+  color: #fff;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 20px;
-  background-color: #fbfbfb;
   border-bottom: 1px solid #d8cece;
   padding: 10px 5px;
 }
@@ -826,7 +831,7 @@ h2 {
 .item_group {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 10px;
 }
 
 .item_avatar,
@@ -840,9 +845,8 @@ h2 {
 }
 
 .name {
-  color: #2f65dd;
-  font-size: 16px;
-  line-height: 20px;
+  font-size: 14px;
+  line-height: 19px;
   font-weight: 400;
 }
 
@@ -869,8 +873,8 @@ h2 {
 }
 
 .next {
-  width: 15px;
-  height: 15px;
+  width: 24px;
+  height: 24px;
   cursor: pointer;
 }
 
@@ -890,9 +894,13 @@ h2 {
   display: flex;
   align-items: center;
   gap: 10px;
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  padding: 20px;
+  border-radius: 10px;
 }
 
-.post-img2 {
+.post-img {
   height: 52px;
   width: 52px;
 }
@@ -900,12 +908,18 @@ h2 {
 .warn {
   width: 100%;
   padding: 20px;
-  background-color: #f9dd4d;
-  color: #000;
-  font-weight: 600;
-  font-size: 14px;
-  line-height: 14px;
-  text-align: center;
+  border: 1px solid #1960e1;
+  color: #1960e1;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
   border-radius: 10px;
+}
+
+.count,
+.countBetween {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
 }
 </style>

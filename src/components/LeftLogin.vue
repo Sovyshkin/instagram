@@ -32,6 +32,7 @@ export default {
             this.message = "Успешно";
             localStorage.setItem("login1", this.id);
             this.load_info();
+            this.$emit("updateInfo");
           } else {
             this.message = "Неправильно введен логин или пароль";
           }
@@ -70,34 +71,52 @@ export default {
 };
 </script>
 <template>
-  <div class="wrap">
-    <h2>1. Log in to the existing and new Instagram account:</h2>
-    <i
+  <div class="wrap-login">
+    <h2>1. Log in to your existing and new Instagram account:</h2>
+    <span
       >We strongly advise to use temporary passwords and change them immediately
-      after the transfer</i
+      after the transfer</span
     >
     <LoaderSpinner v-if="isLoading" />
     <div class="form" v-else>
-      <div class="avatar">
+      <div class="avatar" v-if="id">
         <img class="avatar-img" alt="" />
         <span>{{ username }}</span>
       </div>
       <div class="infoLogin">
-        <span>Old Account</span>
-        <input v-model="login" type="text" placeholder="Username" />
-        <input v-model="password" type="password" placeholder="Password" />
+        <h2>Old Account</h2>
+        <div class="list-group">
+          <div class="group">
+            <label for="login">Login</label>
+            <input
+              v-model="login"
+              id="login"
+              type="text"
+              placeholder="Enter the user name"
+            />
+          </div>
+          <div class="group">
+            <label for="password">Password</label>
+            <input
+              v-model="password"
+              id="password"
+              type="password"
+              placeholder="Enter the password"
+            />
+          </div>
+        </div>
       </div>
-      <button @click="log" class="btn">Log in</button>
+      <button @click="log" class="btn">Sign in</button>
     </div>
-    <h2>2. Select what you wish to be exported to the new account:</h2>
-    <i
-      >Browse through each following, followers and bookmarks, select all you
-      wish to be transferred and hit TRANSFER above</i
+    <h2>2. Select what you want to export to your new account:</h2>
+    <span
+      >Browse through all subscriptions, subscribers, and bookmarks, select
+      whatever you want to transfer, and click "TRANSFER" above</span
     >
   </div>
 </template>
 <style scoped>
-.wrap {
+.wrap-login {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -108,9 +127,21 @@ export default {
 .form {
   width: 100%;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 15px;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.list-group {
+  width: 100%;
+  display: flex;
+  gap: 10px;
+}
+
+.group {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .avatar {
@@ -124,7 +155,8 @@ export default {
 .infoLogin {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 20px;
+  padding: 20px 0;
 }
 
 .infoLogin span {
@@ -133,33 +165,44 @@ export default {
   line-height: 20px;
 }
 
-.infoLogin input {
-  background-color: #fbfbfb;
-  padding: 20px 5px 5px;
-  min-width: 142px;
-  min-height: 40px;
+label {
   font-weight: 600;
+  opacity: 40%;
   font-size: 14px;
-  line-height: 20px;
-  color: #a7a5a5;
+  line-height: 16px;
+}
+
+.infoLogin input {
+  padding: 12px 16px;
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  border-radius: 8px;
+}
+
+input::placeholder {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
 }
 
 .btn {
-  width: 95px;
-  height: 73px;
-  border-radius: 10px;
-  background-color: #cbdeff;
+  width: 100%;
+  text-align: center;
+  border-radius: 8px;
+  padding: 16px 24px;
+  background-color: #1960e1;
+  margin-bottom: 20px;
 }
 
 h2 {
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 12px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
 }
-i {
+span {
   font-weight: 400;
   font-size: 14px;
-  line-height: 20px;
+  line-height: 19px;
+  opacity: 80%;
 }
 
 .avatar-img {

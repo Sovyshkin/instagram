@@ -3,7 +3,7 @@
     <swapping-squares-spinner
       :animation-duration="700"
       :size="50"
-      color="#ff5f21"
+      color="#fff"
     />
   </div>
 </template>
@@ -20,7 +20,8 @@ export default {
 
 <style scoped>
 .wrapper-load {
-  height: 100%;
+  height: 20vh;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
