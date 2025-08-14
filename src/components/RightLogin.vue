@@ -127,4 +127,15 @@ i {
   font-size: 14px;
   line-height: 20px;
 }
+@media (max-width: 600px) {
+  .form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .btn {
+    width: 100%;
+    height: auto;
+    padding: 12px 16px;
+  }
+}
 </style>

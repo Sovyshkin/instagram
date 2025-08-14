@@ -1,15 +1,13 @@
-<script>
-export default {
-  name: "AppTerms",
-  components: {},
-};
+<script setup>
+import AppHeader2 from "@/components/AppHeader2.vue";
 </script>
 <template>
+  <AppHeader2 />
   <div class="wrapper">
     <div class="wrap-info">
       <h1>Terms and Conditions Last Updated: 01 December 2024</h1>
       <span class="desc"
-        >Welcome to IGShift (“Service”, “we”, “our”, “us”). These Terms and
+        >Welcome to IGShift ("Service", "we", "our", "us"). These Terms and
         Conditions govern your use of our platform, which allows you to transfer
         Instagram bookmarks and connections (friends) from one account to
         another. By using the Service, you agree to these Terms.</span
@@ -76,7 +74,7 @@ export default {
           <span
             >Third-Party Platforms: We are not affiliated with Instagram or Meta
             Platforms, Inc. By using the Service, you understand that
-            Instagram’s terms and policies still apply to your accounts.</span
+            Instagram's terms and policies still apply to your accounts.</span
           >
         </div>
         <div class="group">
@@ -88,7 +86,7 @@ export default {
             in your account(s).</span
           >
           <span
-            >3. Use the Service for lawful purposes and comply with Instagram’s
+            >3. Use the Service for lawful purposes and comply with Instagram's
             Terms of Service.</span
           >
           <span
@@ -107,7 +105,7 @@ export default {
           >
           <span
             >We are not liable for any changes to your accounts resulting from
-            Instagram’s monitoring, policies, or security measures.</span
+            Instagram's monitoring, policies, or security measures.</span
           >
         </div>
         <div class="group">
@@ -120,7 +118,7 @@ export default {
         </div>
         <div class="group">
           <h2>8. Disclaimers</h2>
-          <span>The Service is provided on an “as-is” basis. </span>
+          <span>The Service is provided on an "as-is" basis. </span>
           <span
             >We make no warranties regarding the accuracy, completeness, or
             functionality of the Service.</span
@@ -164,7 +162,7 @@ export default {
           </span>
           <span>---</span>
           <span
-            >By clicking “Accept” or using the Service, you confirm that you
+            >By clicking "Accept" or using the Service, you confirm that you
             have read, understood, and agreed to these Terms and
             Conditions</span
           >
@@ -180,8 +178,7 @@ export default {
   flex-direction: column;
   align-items: center;
   justify-content: start;
-  border-radius: 20px;
-  padding: 30px;
+  padding: 90px 30px 30px 30px;
   gap: 30px;
   background-color: #1f1f1f;
 }

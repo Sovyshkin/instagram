@@ -1645,4 +1645,17 @@ h2 {
 .back {
   transform: scaleX(-1);
 }
+@media (max-width: 1024px) {
+  .wrapper {
+    width: 100%;
+  }
+}
+@media (max-width: 600px) {
+  .items {
+    height: 55vh;
+  }
+  .name {
+    font-size: 14px;
+  }
+}
 </style>

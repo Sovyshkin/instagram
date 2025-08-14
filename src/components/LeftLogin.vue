@@ -72,11 +72,6 @@ export default {
 </script>
 <template>
   <div class="wrap-login">
-    <h2>1. Log in to your existing and new Instagram account:</h2>
-    <span
-      >We strongly advise to use temporary passwords and change them immediately
-      after the transfer</span
-    >
     <LoaderSpinner v-if="isLoading" />
     <div class="form" v-else>
       <div class="avatar" v-if="id">
@@ -86,33 +81,22 @@ export default {
       <div class="infoLogin">
         <h2>Old Account</h2>
         <div class="list-group">
-          <div class="group">
-            <label for="login">Login</label>
             <input
               v-model="login"
               id="login"
               type="text"
-              placeholder="Enter the user name"
+              placeholder="Login"
             />
-          </div>
-          <div class="group">
-            <label for="password">Password</label>
             <input
               v-model="password"
               id="password"
               type="password"
-              placeholder="Enter the password"
+              placeholder="Password"
             />
-          </div>
         </div>
       </div>
       <button @click="log" class="btn">Sign in</button>
     </div>
-    <h2>2. Select what you want to export to your new account:</h2>
-    <span
-      >Browse through all subscriptions, subscribers, and bookmarks, select
-      whatever you want to transfer, and click "TRANSFER" above</span
-    >
   </div>
 </template>
 <style scoped>
@@ -135,6 +119,8 @@ export default {
   width: 100%;
   display: flex;
   gap: 10px;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .group {
@@ -172,31 +158,31 @@ label {
   line-height: 16px;
 }
 
-.infoLogin input {
-  padding: 12px 16px;
-  background-color: rgba(255, 255, 255, 0.1) !important;
-  border-radius: 8px;
+input {
+  width: 100%;
+  padding: 12px 24px;
+  border: 1px solid #848484;
+  border-radius: 100px;
+  font-family: "Manrope", sans-serif;
 }
 
 input::placeholder {
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 22px;
+  color: #848484;
+  font-family: "Manrope", sans-serif;
 }
 
 .btn {
   width: 100%;
   text-align: center;
-  border-radius: 8px;
+  border-radius: 100px;
   padding: 16px 24px;
-  background-color: #1960e1;
+  background: linear-gradient(90deg, #951AE8 0%, #FD01BC 50%, #FFC000 100%);
   margin-bottom: 20px;
 }
 
 h2 {
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 19px;
+  font-weight: 700;
+  font-size: 24px;
 }
 span {
   font-weight: 400;
@@ -210,5 +196,13 @@ span {
   height: 48px;
   object-fit: cover;
   border-radius: 100%;
+}
+@media (max-width: 600px) {
+  .list-group {
+    flex-direction: column;
+  }
+  .group {
+    width: 100%;
+  }
 }
 </style>

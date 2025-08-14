@@ -1,46 +1,79 @@
-<script>
-export default {
-  name: "AppHeader",
-  data() {
-    return {};
-  },
-  methods: {},
-  mounted() {},
-};
+<script setup>
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+
+const goTransfer = () => {
+    try {
+        router.push({ name: "transfer" })
+    } catch (err) {
+        console.log(err);
+        
+    }
+}
 </script>
 <template>
-  <header>
-    <span class="name" @click="$router.push({ name: 'main' })">IGShift</span>
-    <span class="terms" @click="$router.push({ name: 'terms' })"
-      >Terms and conditions</span
-    >
-  </header>
+    <header>
+        <div class="wrap-logo">
+            <img src="../assets/instagram.png" alt="">
+            <span>IGshift</span>
+        </div>
+        <button class="btn" @click="goTransfer">Start transfer</button>
+    </header>
 </template>
 <style scoped>
 header {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-  background-color: #1f1f1f;
-  padding: 20px 30px;
-  border-radius: 20px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 3;
 }
 
-span {
-  cursor: pointer;
+.wrap-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
-.name {
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 20px;
+.wrap-logo span {
+    font-weight: 600;
+    font-size: 24px;
+    color: #fff;
 }
 
-.terms {
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 15px;
+.wrap-logo img {
+    height: 40px;
+    width: 40px;
+}
+
+.btn {
+    background: linear-gradient(90deg, #951AE8 0%, #FD01BC 50%, #FFC000 100%);
+    padding: 15px 30px;
+    border-radius: 100px;
+    font-family: "Manrope", sans-serif;
+}
+@media (max-width: 1024px) {
+  .wrap-logo span {
+    font-size: 20px;
+  }
+  .btn {
+    padding: 12px 22px;
+  }
+}
+@media (max-width: 600px) {
+  header {
+    gap: 12px;
+  }
+  .wrap-logo img {
+    height: 32px;
+    width: 32px;
+  }
+  .wrap-logo span {
+    font-size: 18px;
+  }
+  .btn {
+    padding: 10px 18px;
+  }
 }
 </style>

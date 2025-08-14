@@ -71,11 +71,6 @@ export default {
 </script>
 <template>
   <div class="wrap-login">
-    <h2>4. Log in to the receiving Instagram account:</h2>
-    <span
-      >We strongly recommend using temporary passwords and changing them
-      immediately after the transfer
-    </span>
     <LoaderSpinner v-if="isLoading" />
     <div class="form" v-else>
       <div class="avatar" v-if="id">
@@ -85,33 +80,22 @@ export default {
       <div class="infoLogin">
         <h2>New Account</h2>
         <div class="list-group">
-          <div class="group">
-            <label for="login2">Username</label>
             <input
               v-model="login"
               type="text"
               id="login2"
-              placeholder="Enter the user name"
+              placeholder="Login"
             />
-          </div>
-          <div class="group">
-            <label for="password2">Password</label>
             <input
               v-model="password"
               id="password2"
               type="password"
-              placeholder="Enter the password"
+              placeholder="Password"
             />
-          </div>
         </div>
       </div>
       <button @click="log" class="btn">Sign in</button>
     </div>
-    <h2>5. View the copied accounts and bookmarks:</h2>
-    <span
-      >You can select and delete those that were copied by mistake. You can
-      repeat the export, duplicates will be deleted
-    </span>
   </div>
 </template>
 <style scoped>
@@ -134,6 +118,8 @@ export default {
   width: 100%;
   display: flex;
   gap: 10px;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .group {
@@ -171,31 +157,31 @@ label {
   line-height: 16px;
 }
 
-.infoLogin input {
-  padding: 12px 16px;
-  background-color: rgba(255, 255, 255, 0.1) !important;
-  border-radius: 8px;
+input {
+  width: 100%;
+  padding: 12px 24px;
+  border: 1px solid #848484;
+  border-radius: 100px;
+  font-family: "Manrope", sans-serif;
 }
 
 input::placeholder {
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 22px;
+  color: #848484;
+  font-family: "Manrope", sans-serif;
 }
 
 .btn {
   width: 100%;
   text-align: center;
-  border-radius: 8px;
+  border-radius: 100px;
   padding: 16px 24px;
-  background-color: #1960e1;
+  background: linear-gradient(90deg, #951AE8 0%, #FD01BC 50%, #FFC000 100%);
   margin-bottom: 20px;
 }
 
 h2 {
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 19px;
+  font-weight: 700;
+  font-size: 24px;
 }
 span {
   font-weight: 400;
@@ -204,10 +190,18 @@ span {
   opacity: 80%;
 }
 
-.avatar-img2 {
+.avatar-img {
   width: 48px;
   height: 48px;
   object-fit: cover;
   border-radius: 100%;
+}
+@media (max-width: 600px) {
+  .list-group {
+    flex-direction: column;
+  }
+  .group {
+    width: 100%;
+  }
 }
 </style>

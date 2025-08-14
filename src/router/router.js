@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
-import AppMain from "../components/AppMain.vue";
-import AppTerms from "../components/AppTerms.vue";
+import AppMain from "@/views/AppMain.vue";
+import AppTerms from "@/views/AppTerms.vue";
+import AppTransfer from "@/views/AppTransfer.vue";
 
 const router = createRouter({
   history: createWebHistory(),
@@ -14,6 +15,11 @@ const router = createRouter({
       path: "/terms",
       component: AppTerms,
       name: "terms",
+    },
+    {
+      path: "/transfer",
+      component: AppTransfer,
+      name: "transfer",
     },
   ],
 });

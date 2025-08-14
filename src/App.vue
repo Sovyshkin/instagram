@@ -1,27 +1,10 @@
-<script>
-import AppHeader from "./components/AppHeader.vue";
-export default {
-  name: "App",
-  components: {
-    AppHeader,
-  },
-  data() {
-    return {
-      login: true,
-      main: false,
-    };
-  },
-  methods: {},
-  mounted() {},
-};
+<script setup>
 </script>
 <template>
-  <div class="app">
-    <app-header />
     <router-view></router-view>
-  </div>
 </template>
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
 @import url("https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&display=swap");
 #app {
   font-family: "Unbounded", serif;
@@ -34,6 +17,8 @@ export default {
   font-family: "Unbounded", serif;
   font-optical-sizing: auto;
   font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
   color: #fff;
 }
 
@@ -48,7 +33,7 @@ export default {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  background-color: #111111;
+  background-color: #f5f5f5;
 }
 
 body,
@@ -57,7 +42,7 @@ body,
   height: 100%;
   display: flex;
   flex-direction: column;
-  background-color: #111111;
+  background-color: #f5f5f5;
 }
 
 /* Links */

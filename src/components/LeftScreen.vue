@@ -327,9 +327,9 @@ export default {
   </div>
   <div class="wrapper" v-else>
     <LeftLogin @updateInfo="load_info" />
-    <div class="warn" v-if="active == 3">
+    <!-- <div class="warn" v-if="active == 3">
       All entries from all collections will be moved to favorites
-    </div>
+    </div> -->
     <div class="info" v-if="account1">
       <div class="wrap_btns">
         <button
@@ -614,7 +614,6 @@ export default {
   border-radius: 20px;
   padding: 30px;
   gap: 30px;
-  background-color: #1f1f1f;
 }
 .card {
   position: relative;
@@ -753,6 +752,14 @@ h2 {
   gap: 10px;
 }
 
+.transfer {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: center;
+  background-color: #9747ff !important;
+}
+
 .wrap_btns {
   width: 100%;
   display: flex;
@@ -762,7 +769,7 @@ h2 {
 }
 
 .wrap_btns button {
-  background-color: rgba(255, 255, 255, 0.1) !important;
+  background-color: rgba(255, 255, 255, 0.1) ;
   padding: 16px;
   border-radius: 10px;
   display: flex;
@@ -780,16 +787,8 @@ h2 {
   text-align: center;
 }
 
-.transfer {
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 20px;
-  text-align: center;
-  background-color: #9747ff !important;
-}
-
 .active {
-  background-color: #cbdeff !important;
+  background-color: #CFD2F1 !important;
 }
 
 .delete {
@@ -837,6 +836,8 @@ h2 {
   display: flex;
   align-items: center;
   gap: 10px;
+  border-radius: 20px;
+
 }
 
 .item_avatar,
@@ -856,7 +857,7 @@ h2 {
 }
 
 .item_active {
-  background-color: #ebf2fe;
+  background-color: #CFD2F1;
 }
 
 .item_active .item_avatar {
@@ -926,5 +927,21 @@ h2 {
   font-weight: 400;
   font-size: 14px;
   line-height: 19px;
+}
+@media (max-width: 1024px) {
+  .wrapper {
+    width: 100%;
+  }
+}
+@media (max-width: 600px) {
+  .wrapper {
+    padding: 16px;
+  }
+  .items {
+    height: 55vh;
+  }
+  .name {
+    font-size: 12px;
+  }
 }
 </style>
