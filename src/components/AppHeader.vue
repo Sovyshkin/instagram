@@ -15,7 +15,7 @@ const goTransfer = () => {
 <template>
     <header>
         <div class="wrap-logo">
-            <img src="../assets/instagram.png" alt="">
+            <img src="@/assets/instagram.png" alt="">
             <span>IGshift</span>
         </div>
         <button class="btn" @click="goTransfer">Start transfer</button>

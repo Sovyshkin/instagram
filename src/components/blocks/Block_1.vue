@@ -12,13 +12,13 @@ const isHovered = ref(false)
         
         <img 
             class="circle circle-1" 
-            src="../../assets/circle.png" 
+            src="@/assets/circle.png" 
             alt=""
             :style="{ transform: isHovered ? 'scale(1.05) rotate(5deg)' : 'scale(1)' }"
         >
         <img 
             class="circle circle-2" 
-            src="../../assets/circle.png" 
+            src="@/assets/circle.png" 
             alt=""
             :style="{ transform: isHovered ? 'scale(1.05) rotate(-5deg)' : 'scale(1)' }"
         >

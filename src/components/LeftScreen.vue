@@ -376,14 +376,14 @@ export default {
             <img
               class="checkbox"
               @click="select_all('following', false)"
-              src="../assets/select.png"
+              src="@/assets/select.png"
               alt=""
               v-if="following"
             />
             <img
               class="checkbox"
               @click="select_all('following', true)"
-              src="../assets/not_selected.png"
+              src="@/assets/not_selected.png"
               alt=""
               v-if="!following"
             />
@@ -405,13 +405,13 @@ export default {
             <div class="item_group">
               <img
                 class="checkbox"
-                src="../assets/select.png"
+                src="@/assets/select.png"
                 alt=""
                 v-if="item.active"
               />
               <img
                 class="checkbox"
-                src="../assets/not_selected.png"
+                src="@/assets/not_selected.png"
                 alt=""
                 v-if="!item.active"
               />
@@ -431,13 +431,13 @@ export default {
             <img
               @click="back()"
               class="next"
-              src="../assets/arrow-left.png"
+              src="@/assets/arrow-left.png"
               alt=""
             />
             <img
               @click="next()"
               class="next"
-              src="../assets/arrow-right.png"
+              src="@/assets/arrow-right.png"
               alt=""
             />
           </div>
@@ -449,14 +449,14 @@ export default {
             <img
               class="checkbox"
               @click="select_all('following', false)"
-              src="../assets/select.png"
+              src="@/assets/select.png"
               alt=""
               v-if="following"
             />
             <img
               class="checkbox"
               @click="select_all('following', true)"
-              src="../assets/not_selected.png"
+              src="@/assets/not_selected.png"
               alt=""
               v-if="!following"
             />
@@ -479,14 +479,14 @@ export default {
               <img
                 class="checkbox"
                 @click="select_all('followers')"
-                src="../assets/select.png"
+                src="@/assets/select.png"
                 alt=""
                 v-if="item.active"
               />
               <img
                 class="checkbox"
                 @click="select_all('followers')"
-                src="../assets/not_selected.png"
+                src="@/assets/not_selected.png"
                 alt=""
                 v-if="!item.active"
               />
@@ -506,13 +506,13 @@ export default {
             <img
               @click="back('followers')"
               class="next"
-              src="../assets/arrow-left.png"
+              src="@/assets/arrow-left.png"
               alt=""
             />
             <img
               @click="next('followers')"
               class="next"
-              src="../assets/arrow-right.png"
+              src="@/assets/arrow-right.png"
               alt=""
             />
           </div>
@@ -524,14 +524,14 @@ export default {
             <img
               class="checkbox"
               @click="select_all('bookmarks', false)"
-              src="../assets/select.png"
+              src="@/assets/select.png"
               alt=""
               v-if="bookmark"
             />
             <img
               class="checkbox"
               @click="select_all('bookmarks', true)"
-              src="../assets/not_selected.png"
+              src="@/assets/not_selected.png"
               alt=""
               v-if="!bookmark"
             />
@@ -547,13 +547,13 @@ export default {
               v-if="item.active"
               @click="selectBookmark(item.id)"
               class="selected"
-              src="../assets/select.png"
+              src="@/assets/select.png"
             />
             <img
               v-if="!item.active"
               class="not_selected"
               @click="selectBookmark(item.id)"
-              src="../assets/not_selected.png"
+              src="@/assets/not_selected.png"
             />
           </div>
           <div class="posts" :class="{ open: item.open }">
@@ -568,12 +568,12 @@ export default {
               <img
                 v-if="post.active"
                 class="selected"
-                src="../assets/select.png"
+                src="@/assets/select.png"
               />
               <img
                 v-if="!post.active"
                 class="not_selected"
-                src="../assets/not_selected.png"
+                src="@/assets/not_selected.png"
               />
             </div>
           </div>
@@ -589,13 +589,13 @@ export default {
             <img
               @click="back('bookmarks')"
               class="next"
-              src="../assets/arrow-left.png"
+              src="@/assets/arrow-left.png"
               alt=""
             />
             <img
               @click="next('bookmarks')"
               class="next"
-              src="../assets/arrow-right.png"
+              src="@/assets/arrow-right.png"
               alt=""
             />
           </div>
