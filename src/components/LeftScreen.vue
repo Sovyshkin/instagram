@@ -278,7 +278,7 @@ export default {
         if (this.active == 1) {
           let lst = this.selectedFollowing;
           let response = await axios.post(
-            `/add_followings?login=${localStorage.getItem("login2")}`,
+            `/add_followings?login_from=${localStorage.getItem("login2")}&login_to=${localStorage.getItem("login1")}`,
             lst,
             {
               "Content-Type": "application/json",
@@ -294,7 +294,7 @@ export default {
         } else if (this.active == 3) {
           let lst = this.selectedBookmarks;
           let response = await axios.post(
-            `/add_medias_to_collection?login=${localStorage.getItem("login2")}`,
+            `/add_medias_to_collection?login_from=${localStorage.getItem("login2")}&login_to=${localStorage.getItem("login1")}`,
             lst,
             {
               "Content-Type": "application/json",
